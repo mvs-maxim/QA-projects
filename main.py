@@ -1,10 +1,17 @@
-per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
-money = int(input("Введите сумму вклада: "))
+tickets = int(input("Enter the number of tickets you want to purchase: "))
+total_cost = 0
 
-TKB = round(money * (per_cent.get('ТКБ')/100))
-SKB = round(money * (per_cent.get('СКБ')/100))
-VTB = round(money * (per_cent.get('ВТБ')/100))
-SBER = round(money * (per_cent.get('СБЕР')/100))
-deposit = [TKB, SKB, VTB, SBER]
+for i in range(tickets):
+    age = int(input("Enter the age of the visitor: "))
+    if age < 18:
+        cost = 0
+    elif age < 25:
+        cost = 990
+    else:
+        cost = 1390
+    total_cost += cost
 
-print("Максимальная сумма, которую вы можете заработать — ", max(deposit))
+if tickets > 3:
+    total_cost = total_cost - (total_cost * 0.1)
+
+print("Total cost:", total_cost)
